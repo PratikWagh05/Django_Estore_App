@@ -1,0 +1,26 @@
+{%extends "homepage.html" %}
+{%block content%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Payment</h1>
+<br>
+<form method="post" style="padding: 30px;">
+    {%csrf_token%}
+<table class="table">
+    <tr><td>Enter Card No.</td>
+    <td><input type="text" name="cardno" placeholder="Card No" class="form-control" required/></td></tr>
+    <tr><td>Enter CVV</td>
+        <td><input type="text" name="cvv" class="form-control" placeholder="CVV" required/></td></tr>
+        <tr><td>Enter Card Expiry</td>
+            <td><input type="text" name="expiry" class="form-control" required placeholder="Expiry"/></td></tr>       
+        <tr><td>Total Amount</td>
+                <td>{{request.session.total}}</td></tr>            
+        <tr>
+<td><br><button type="submit" class="btn btn-success">Make Payment</button></td>
+</tr>
+</table>
+</form>
+{%endblock%}

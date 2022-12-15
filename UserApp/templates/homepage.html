@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>DigiLife Electronics </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      background: linear-gradient(90deg, #131925 0%, #182848 100%);
+      margin-bottom: 0px;
+      padding: 10px;
+    }
+  
+    * {
+      box-sizing: border-box;
+    }
+  
+    .zoom {
+      padding: 0px;
+      background-image: radial-gradient(circle, #bad1d4 0%, #1d668b 100%);
+      transition: .2s;
+      border-radius: 20px;
+      margin: 0 auto;
+      padding: 10px
+    }
+  
+    .zoom:hover {
+      -ms-transform: scale(1.04);
+      /* IE 9 */
+      -webkit-transform: scale(1.04);
+      /* Safari 3-8 */
+      transform: scale(1.04);
+    }
+  
+    .dropdown-menu {
+      background-image: radial-gradient(circle, #bbe5f6 0%, #6692ae 110%);
+      border-radius: 10px;
+    }
+  
+    .panel {
+      background-image: radial-gradient(circle, #dfecee 0%, #8daac1 100%);
+      border-radius: 20px;
+      padding: 0px;
+    }
+  
+    .panel-footer {
+      background-image: radial-gradient(circle, #9bc3ca 0%, #7faac4 100%);
+      border-radius: 20px;
+      padding: 10px;
+    }
+  
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #2e678d;
+      padding: 25px;
+    }
+  
+    * {
+      box-sizing: border-box;
+    }
+  
+    body {
+      font-family: Verdana, sans-serif;
+      background-image: radial-gradient(circle, #f6fcfd 0%, #6f95b3 100%);
+      
+    }
+  
+    .mySlides {
+      display: none;
+    }
+  
+    img {
+      vertical-align: middle;
+    }
+  
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 2000px;
+      position: relative;
+      margin: auto;
+    }
+  
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+  
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+  
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: rgb(192, 217, 235);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+  
+    .active {
+      background-color: #2b63a3;
+    }
+  
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 4s;
+    }
+  
+    @keyframes fade {
+      from {
+        opacity: 0.7
+      }
+  
+      to {
+        opacity: 1
+      }
+    }
+  
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {
+        font-size: 11px
+      }
+    }
+  
+    /*Footer CSS*/
+  
+    footer {
+      background: #16222A;
+      background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
+      background: linear-gradient(59deg, #3A6073, #16222A);
+      color: white;
+      margin-top: 100px;
+    }
+  
+    footer a {
+      color: rgb(255, 255, 255);
+      font-size: 14px;
+      margin-left: 100px;
+      transition-duration: 0.2s;
+    }
+  
+    footer a:hover {
+      color: #07c3f7;
+      text-decoration: none;
+    }
+  
+    .copy {
+      font-size: 12px;
+      padding: 20px;
+      border-top: 1px solid #FFFFFF;
+    }
+  
+    .footer-middle {
+      padding-top: 0px;
+      color: white;
+    }
+  
+    /* footer social icons */
+  
+    ul.social-network {
+      list-style: none;
+      display: inline;
+      margin-left: 0;
+      padding: 0;
+    }
+  
+    ul.social-network li {
+      display: inline;
+      margin: 0 5px;
+    }
+  
+  
+    /* footer social icons */
+  
+    .social-network a.icoFacebook:hover {
+      background-color: #3B5998;
+    }
+  
+    .social-network a.icoLinkedin:hover {
+      background-color: #007bb7;
+    }
+  
+    .social-network a.icoFacebook:hover i,
+    .social-network a.icoLinkedin:hover i {
+      color: #fff;
+    }
+  
+    .social-network a.socialIcon:hover,
+    .socialHoverClass {
+      color: #44BCDD;
+    }
+  
+    .social-circle li a {
+      display: grid;
+      position: relative;
+      margin: 0 auto 0 auto;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      text-align: center;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      margin-left: 100px;
+    }
+  
+    .social-circle li i {
+      margin: 0;
+      line-height: 50px;
+      text-align: center;
+    }
+  
+    .social-circle li a:hover i,
+    .triggeredHover {
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -ms--transform: rotate(360deg);
+      transform: rotate(360deg);
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+  
+    .social-circle i {
+      color: #1872cc;
+      -webkit-transition: all 0.8s;
+      -moz-transition: all 0.8s;
+      -o-transition: all 0.8s;
+      -ms-transition: all 0.8s;
+      transition: all 0.8s;
+    }
+  
+    .social-network a {
+      background-color: #F9F9F9;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div>
+      
+    </div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      {%if "uname" in request.session%}
+      <a class="navbar-brand" href="/">DigiLife Electronics</a>
+      <br>
+      <a class=""><i>Welcome {{request.session.uname}}</i></a>
+      {%else%}
+      <a class="navbar-brand" href="/">DigiLife Electronics</a>
+      {%endif%}
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        {%if "uname" in request.session%}
+        <li><a href="/ShowAllCartItems"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+        <li><a href="/signout"><span class="glyphicon glyphicon-log-out"></span> LogOut</a></li>
+        {%else%}
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        {%endif%}
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li class=""><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {%for cat in cats%}
+            <li><a href="/ShowProduct/{{cat.id}}">{{cat.category_name}}</a></li>
+            {%endfor%}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{%block content%}
+{%load static%}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="/static/images/Banner-01.jpg" style="width: 100%; height: 300px; ">
+
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="/static/images/Banner-2.jpg" style="width:100% ;height: 300px;">
+
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="/static/images/Banner-03.webp" style="width:100% ;height: 300px;">
+
+  </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    setTimeout(showSlides, 4000); // Change image every 2 seconds
+  }
+</script>
+<br>
+<br>
+
+
+<div class="container">
+  {%for prod in prods%}
+  <div class="col-sm-4">
+    <div class="panel panel-primary ">
+      <div class="zoom">
+        <div class="panel-body">
+
+          <center><img src="{{prod.image.url}}" class="img-responsive" style="width:200px; height:200px" alt="Image">
+          </center>
+        </div>
+
+        <div class="panel-footer">
+          <p>{{prod.pname}}</p>
+          <p><b>Price: {{prod.price}}</b></p>
+          <i><a href="/ViewDetails/{{prod.id}}">View Details</a></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+
+</div>
+
+{%endblock%}
+
+<footer class="mainfooter" role="contentinfo">
+  <div class="footer-middle">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6">
+          <!--Column1-->
+          <div class="footer-pad">
+            <h3>DigiLife Electronics</h3>
+            <br>
+            <p>DigiLife Electronics is India's
+               first large format specialist
+               electronics retail store.
+               Founded in 2006,DigiLife brings
+               under one roof, multi-brand
+               digital gadgets and home
+               electronics products.</p>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <!--Column1-->
+          <div class="footer-pad">
+            <h4 style="margin-left: 100px;">Quick Links</h4>
+            <br>
+            <ul class="list-unstyled">
+              <li><a href="#">Home</a></li>
+              <li><a href="/signup">Signup</a></li>
+              <li><a href="/login">Login</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  {%for cat in cats%}
+                  <li><a href="/ShowProduct/{{cat.id}}">{{prod.category_name}}</a></li>
+                  {%endfor%}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <!--Column1-->
+          <div class="footer-pad">
+            <h4 style="margin-left: 100px;">Contact Us</h4>
+            <br>
+            <ul class="list-unstyled">
+              <li><a href="/">+91 8452625748</a></li>
+              <li><a href="#">+91 9452636389</a></li>
+              <li><a href="#">info@digilife.com</a></li>
+
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <h4 style="margin-left: 100px;">Follow Us</h4>
+          <br>
+          <ul class="social-network social-circle">
+            <li><a href="https://www.linkedin.com/in/pratik-wagh-966ab214a/" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/pratik-wagh-966ab214a/" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-12 copy">
+          <p class="text-center">&copy; Copyright 2022 - DigiLife Electronics. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

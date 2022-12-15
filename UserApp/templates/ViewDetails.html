@@ -1,0 +1,240 @@
+{%extends "homepage.html"%}
+
+
+{%block content%}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DigiLife Electronics</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+
+  <style>
+    
+    .preview-thumbnail.nav-tabs li a {
+      padding: 0;
+      margin: 0;
+    }
+
+    .preview-thumbnail.nav-tabs li:last-of-type {
+      margin-right: 0;
+    }
+
+    .tab-content {
+      overflow: hidden;
+    }
+
+    .tab-content img {
+      width: 100%;
+      -webkit-animation-name: opacity;
+      animation-name: opacity;
+      -webkit-animation-duration: .3s;
+      animation-duration: .3s;
+    }
+
+    .card {
+      margin-top: 110px;
+      background-image: radial-gradient(circle, #bbd4d9 0%, #1d668b 100%);
+      padding: 15px;
+      line-height: 1.5em;
+      border-radius: 15px;
+    }
+
+    .details {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .colors {
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+    }
+
+    .product-title,
+    .price,
+    .sizes,
+    .colors {
+
+      font-weight: bold;
+    }
+
+    .checked,
+    .price span {
+      color: #000000;
+    }
+
+    .product-title,
+    .rating,
+    .product-description,
+    .price,
+    .vote,
+    .sizes {
+      margin-bottom: 15px;
+    }
+
+    .product-title {
+      margin-top: 0;
+    }
+
+    .size {
+      margin-right: 10px;
+    }
+
+    .size:first-of-type {
+      margin-left: 40px;
+    }
+
+    .color {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      height: 2em;
+      width: 2em;
+      border-radius: 2px;
+    }
+
+    .color:first-of-type {
+      margin-left: 20px;
+    }
+
+    .add-to-cart,
+    .add-to-cart:hover {
+      background: linear-gradient(90deg, #131925 0%, #182848 100%);
+      color: #fff;
+    }
+
+    .not-available {
+      text-align: center;
+      line-height: 2em;
+    }
+
+    .not-available:before {
+      font-family: fontawesome;
+      content: "\f00d";
+      color: #fff;
+    }
+
+    @-webkit-keyframes opacity {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes opacity {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+    .form-control,.option{
+      
+      background: linear-gradient(59deg, #949fa5, #6499bd);
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="container-fliud">
+        <div class="wrapper row">
+          <div class="preview col-md-6">
+            <div class="preview-pic tab-content">
+              <div class="tab-active" id="pic-1"><img src="{{prod.image.url}}" /></div>
+            </div>
+          </div>
+          <div class="details col-md-6">
+            <h2 class="product-title">{{prod.pname}}</h2>
+            <div class="rating">
+              <div class="stars">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+              </div>
+              <span class="review-no">4.1 Rating</span>
+            </div>
+            <p class="product-description">Description: {{prod.description}}</p>
+            <h3 class="price">Price: <span>{{prod.price}}/Rs </span></h3>
+            <h3><i>Flat <strong>20%</strong> OFF</i></h3>
+            <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+            
+            <div class="row">
+            
+              <img src="/static/images/replace.png/" style="width:50px;height:50px;padding:5px;" />
+            
+              <img src="/static/images/warranty.png/" style="width:50px;height:50px;padding:5px;" />
+            
+              <img src="/static/images/delivery.png/" style="width:50px;height:50px;padding:5px;" />
+            
+            </div>
+            
+            <br>
+            <div class="action">
+              <form method="post" action="/addToCart">
+                {%csrf_token%}
+                <table class="table">
+                  <tr>
+                    <td>Quantity</td>
+                    <td><select name="qty" class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <button type="submit" class="btn add-to-cart ">Add To Cart</button>
+                    </td>
+                    <td>
+                      <input type="hidden" name="prodid" value="{{prod.id}}" />
+                    </td>
+                  </tr>
+                </table>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+{%endblock%}

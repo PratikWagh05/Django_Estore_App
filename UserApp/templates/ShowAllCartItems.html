@@ -1,0 +1,92 @@
+{%extends "homepage.html"%}
+
+
+{%block content%}
+<script type="text/javascript">
+    function getConfirm(myid)
+    {
+        result = confirm("Are you sure you want to delete(y/n)?");
+        if(result)
+        {           
+           myform =  document.getElementById(myid);
+           myform.submit();
+        }
+    }
+    function increment(myid)
+    {
+        txtQty = document.getElementById(myid);
+        if(txtQty.value < 10)
+        {
+            txtQty.value = parseInt(txtQty.value)+1;
+        }
+    }
+    function decrement(myid)
+    {
+        txtQty = document.getElementById(myid);
+        if(txtQty.value > 1)
+        {
+            txtQty.value = parseInt(txtQty.value)-1;
+        }
+    }
+</script>
+<style>             
+    body {
+        margin: 0;
+        padding: 10p;
+        font-family: sans-serif;
+        background-image: radial-gradient(circle, #a4c5d5 0%, #3d7aa0 100%);
+    }
+    .btn{
+        background-image: linear-gradient(circle, #c9e2ef 0%, #6a9ebe 50%);
+    }
+    .table{
+        border-color: #3d7aa0;
+    }
+</style>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+<h1>Cart Details</h1>
+<table class="table">
+    <tr><th>Product Name</th><th>Description</th><th>Price</th>
+        <th>Quantity</th><th>Sub Total</th></tr>
+    {%for item in items%}
+    <form method="post" id="myform{{item.product.id}}">
+        {%csrf_token%}
+    
+    <tr>
+        <td><input type="hidden" name="productid" value="{{item.product.id}}"/>
+            {{item.product.pname}}</td>
+        <td>{{item.product.description}}</td>
+        <td>{{item.product.price}}</td>        
+        <td><button class="btn" type="button" 
+            onclick="decrement('qty{{item.product.id}}')">  -  </button>
+            <input type="text"  name="qty" id="qty{{item.product.id}}" value=" {{item.qty}}" size="4"/>
+           
+            <button class="btn" type="button" 
+            onclick="increment('qty{{item.product.id}}')">  +  </button>
+            
+            <button class="btn" type="submit" 
+                    name="action" value="update">Update</button>
+        </td>
+        <td>{% widthratio item.qty 1 item.product.price %}</td>
+        <td><button class="btn" type="button" 
+            onclick="getConfirm('myform{{item.product.id}}')" 
+            name="action" value="remove">Remove</button> </td>
+        
+    </tr>
+</form>
+    {%endfor%}
+</table>
+
+<hr/>
+<h3>Total : {{request.session.total}}</h3>
+<hr/>
+<a href="/MakePayment" class="btn btn-success">Proceed to make Payment</a>
+
+</center>
+
+{%endblock%}

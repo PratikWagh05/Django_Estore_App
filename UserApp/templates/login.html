@@ -1,0 +1,129 @@
+{%extends "homepage.html" %}
+
+{%block content%}
+<html>
+<style>
+    body {
+        margin: 0;
+        padding: 10p;
+        font-family: sans-serif;
+          
+    }
+
+    .card {
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 100px;
+    }
+
+    .box {
+        width: 500px;
+        border-radius: 30px;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 55%;
+        background: linear-gradient(150deg, #053d4c 0%, #275b8a 100%);
+        text-align: center;
+        transition: 0.25s;
+        margin-top: 0px
+    }
+
+    .box input[type="text"],
+    .box input[type="password"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #3498db;
+        padding: 10px 10px;
+        width: 350px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s
+    }
+
+    .box h1 {
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500
+    }
+
+    .box input[type="text"]:focus,
+    .box input[type="password"]:focus {
+        width: 400px;
+        border-color: #2ecc71
+    }
+
+    .box input[type="submit"] {
+        border: 0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: white;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer
+    }
+
+    .box input[type="submit"]:hover {
+        background: #2ecc71
+    }
+
+</style>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <form method="post" class="box">
+                        {%csrf_token%}
+                        <h1>Login</h1>
+                        <br>
+                        <input type="text" name="uname" placeholder="Username" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <input type="submit" name="" value="Login" href="#">
+                        <a href="/signup" >Click Here to Register Yourself</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</html>
+{%endblock%}
